@@ -8,7 +8,7 @@
 
 | Name     | Roll     | Department | GitHub    |
 | -------- | -------- | ---------- | --------- |
-| Member 1 | 2K25XXXX | CSE        | @username |
+| Tasif Abdullah | 2K2507025 | CSE        | @tasifabd |
 | Member 2 | 2K25XXXX | CSE        | @username |
 | Amanat Aziz Khan | 2K2507052 | CSE        | @amanat11-codes |
 | Member 4 | 2K25XXXX | CSE        | @username |
