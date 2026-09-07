@@ -11,7 +11,7 @@
 | Tasif Abdullah | 2K2507025 | CSE        | @tasifabd |
 | Raghib Iqbal | 2K2507026 | CSE        | @Raghib-Iqbal |
 | Amanat Aziz Khan | 2K2507052 | CSE        | @amanat11-codes |
-| Musarratul Abedin Mahim | 2K2507052 | CSE        | @musarratul2004 |
+| Musarratul Abedin Mahim | 2K2507053| CSE        | @musarratul2004 |
 
 ---
 
