@@ -55,15 +55,40 @@ Such incidents occur on a daily basis. Sometimes we lose a calculator, other tim
 
 ### Overview
 
-Describe your proposed solution.
+Key System Features
 
+Dual Operational Modes
+Lost Item Reporting: Users who lose an item can submit a detailed report specifying key attributes, distinguishing features, and the precise location where it was lost.
+
+Found Item Search & Response: Finders can browse active queries in the database and directly respond to reports matching the item in their possession.
+
+Intelligent Verification & Fraud Prevention
+An automated cross-verification system safeguards items by prompting claimants with custom secret questions established by the finder. Because only the true owner possesses these unique answers, the system effectively prevents fraudulent claims and guarantees secure returns.
+
+Privacy-First Architecture
+User privacy is built into the core design. Personal contact information remains entirely hidden while browsing the database. Contact details are securely exchanged between both parties only after a successful verification match.
+
+Roadmap & Future Developments
+Audit & Accountability Logging: A tracking system that logs successfully matched interactions to detect, flag, and penalize fraudulent entries or improper usage.
 ### How It Works
 
 Explain the complete flow of your system.
 
-1.
-2.
-3.
+User Authentication: The user logs in securely using their Student ID and contact information.
+
+Action Selection & Report Submission:
+
+Owner Path: If an item is missing, the user submits a lost item report specifying its properties, description, and last known location.
+
+Finder Path: If an item is found, the user submits a found item report containing details and custom verification parameters, which updates the central database.
+
+Database Search & Match Selection: The system queries the database based on the user's input parameters and displays relevant matching results. The owner then selects the entry that aligns with their missing item.
+
+Intelligent Cross-Verification: To establish ownership, the verification system prompts the claimant with secret questions set by the finder regarding non-obvious details of the item.
+
+Algorithmic Trust Scoring: The system evaluates the provided answers. If the calculated trust level exceeds 90%, the match is deemed successful; otherwise, the attempt is rejected to prevent fraudulent claims.
+
+Secure Data Release: Upon a successful match, the system releases the contact details of both parties to facilitate a direct and safe exchange.
 
 ---
 
