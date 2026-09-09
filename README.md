@@ -1,6 +1,6 @@
 <img src="https://i.ibb.co.com/7NrtB6Vv/image.png" />
 
-# Forkathon 2026: [Your Project Name] by KUET_NextCoders
+# Forkathon 2026: [KontaKar] by KUET_NextCoders
 
 > Built for ForkedArch Freshers Hackathon 2026
 
@@ -17,9 +17,9 @@
 
 ## ❔ Problem
 
-### Problem Statement
+### Problem Statement.  
 
-> Replace this section with the problem statement assigned to your team.
+Project name finalized: KontaKar
 
 ### 🤔 KUET_NextCoder's Understanding
 
