@@ -28,11 +28,11 @@
         </div>
 
         <div class="input-group">
-            <label for="contactNumber">Contact Number</label>
+            <label for="password">Password</label>
             <input 
-                type="tel" 
-                id="contactNumber" 
-                placeholder="Enter your contact number"
+                type="password" 
+                id="password" 
+                placeholder="Enter your password"
             >
         </div>
 
@@ -78,6 +78,17 @@
             >
         </div>
 
+
+        <!-- Contact -->
+        <div class="input-group">
+            <label for="foundContact">Contact Number</label>
+            <input 
+                type="tel" 
+                id="foundContact"
+                placeholder="A number the owner can reach you on"
+            >
+        </div>
+ 
 
         <!-- Feature 1 -->
         <div class="feature-section">
@@ -178,92 +189,8 @@
 
         <h1 id="feedHeading">Found Items Feed</h1>
 
-
-        <ul class="item-list">
-
-            <!-- Item 1 -->
-            <li class="item-card">
-
-                <h2>Black Wallet</h2>
-
-                <p>
-                    <strong>Location:</strong> Cafeteria
-                </p>
-
-               <button class="action-btn" onclick="handleItemAction(1)">
-    Claim
-</button>
-
-                <div id="itemDetails1" class="item-details">
-                    <ul>
-                        <li>Color: Black</li>
-                        <li>Company: LeatherCraft</li>
-                        <li>Logo: Silver mark</li>
-                        <li>Size: Medium</li>
-                        <li>Material: Leather</li>
-                    </ul>
-                </div>
-
-            </li>
-
-
-
-            <!-- Item 2 -->
-            <li class="item-card">
-
-                <h2>Blue Backpack</h2>
-
-                <p>
-                    <strong>Location:</strong> Library Building
-                </p>
-
-              <button class="action-btn" onclick="handleItemAction(2)">
-    Claim
-</button>
-                <div id="itemDetails2" class="item-details">
-
-                    <ul>
-                        <li>Color: Blue</li>
-                        <li>Company: American Tourister</li>
-                        <li>Logo: White logo</li>
-                        <li>Size: Large</li>
-                        <li>Material: Polyester</li>
-                    </ul>
-
-                </div>
-
-            </li>
-
-
-
-            <!-- Item 3 -->
-            <li class="item-card">
-
-                <h2>Smartphone</h2>
-
-                <p>
-                    <strong>Location:</strong> Engineering Lab
-                </p>
-<button class="action-btn" onclick="handleItemAction(3)">
-    Claim
-</button>
-
-
-                <div id="itemDetails3" class="item-details">
-
-                    <ul>
-                        <li>Color: Midnight Black</li>
-                        <li>Company: Samsung</li>
-                        <li>Model: Galaxy S Series</li>
-                        <li>Size: 6.5 inch</li>
-                        <li>Logo: Samsung</li>
-                    </ul>
-
-                </div>
-
-            </li>
-
-
+        <ul class="item-list" id="itemList">
+            <!-- Items are loaded here from the JSON server -->
         </ul>
 
     </div>
@@ -401,7 +328,7 @@
 
 </div>
 
-    <script src="js/app.js"></script>
+    <script type="module" src="js/app.js"></script>
 
     </body>
 </html>
