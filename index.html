@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Lost & Found</title>
+
+    <!-- CSS File -->
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+
+    <body>
+        <!-- Login Page -->
+<div id="loginPage" class="page">
+    <div class="login-container">
+
+        <h1>Campus Lost & Found</h1>
+        <p>Enter your information to continue</p>
+
+        <div class="input-group">
+            <label for="studentId">Student ID</label>
+            <input 
+                type="text" 
+                id="studentId" 
+                placeholder="Enter your student ID"
+            >
+        </div>
+
+        <div class="input-group">
+            <label for="contactNumber">Contact Number</label>
+            <input 
+                type="tel" 
+                id="contactNumber" 
+                placeholder="Enter your contact number"
+            >
+        </div>
+
+        <div class="action-buttons">
+            <button class="found-btn" onclick="handleLogin('found')">
+                I Found Something
+            </button>
+
+            <button class="lost-btn" onclick="handleLogin('lost')">
+                I Lost Something
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Found Item Page -->
+<div id="foundItemPage" class="page">
+
+    <div class="form-container">
+
+        <h1>Report Found Item</h1>
+        <p>Provide details about the item you found</p>
+
+
+        <!-- Item Name -->
+        <div class="input-group">
+            <label for="foundItemName">Item Name</label>
+            <input 
+                type="text" 
+                id="foundItemName"
+                placeholder="Example: Wallet, Phone, Bag"
+            >
+        </div>
+
+
+        <!-- Location -->
+        <div class="input-group">
+            <label for="foundLocation">Location</label>
+            <input 
+                type="text" 
+                id="foundLocation"
+                placeholder="Where did you find it?"
+            >
+        </div>
+
+
+        <!-- Feature 1 -->
+        <div class="feature-section">
+
+            <label>Feature 1</label>
+
+            <div class="feature-row">
+                <select id="feature1Name">
+                    <option value="">Select Property</option>
+                    <option value="Color">Color</option>
+                    <option value="Logo">Logo</option>
+                    <option value="Size">Size</option>
+                    <option value="Company">Company</option>
+                    <option value="Material">Material</option>
+                    <option value="Model">Model</option>
+                </select>
+
+                <input 
+                    type="text"
+                    id="feature1Value"
+                    placeholder="Enter value"
+                >
+            </div>
+
+        </div>
+
+
+
+        <!-- Feature 2 -->
+        <div class="feature-section">
+
+            <label>Feature 2</label>
+
+            <div class="feature-row">
+                <select id="feature2Name">
+                    <option value="">Select Property</option>
+                    <option value="Color">Color</option>
+                    <option value="Logo">Logo</option>
+                    <option value="Size">Size</option>
+                    <option value="Company">Company</option>
+                    <option value="Material">Material</option>
+                    <option value="Model">Model</option>
+                </select>
+
+                <input 
+                    type="text"
+                    id="feature2Value"
+                    placeholder="Enter value"
+                >
+            </div>
+
+        </div>
+
+
+
+        <!-- Feature 3 -->
+        <div class="feature-section">
+
+            <label>Feature 3</label>
+
+            <div class="feature-row">
+                <select id="feature3Name">
+                    <option value="">Select Property</option>
+                    <option value="Color">Color</option>
+                    <option value="Logo">Logo</option>
+                    <option value="Size">Size</option>
+                    <option value="Company">Company</option>
+                    <option value="Material">Material</option>
+                    <option value="Model">Model</option>
+                </select>
+
+                <input 
+                    type="text"
+                    id="feature3Value"
+                    placeholder="Enter value"
+                >
+            </div>
+
+        </div>
+
+
+
+        <!-- Submit -->
+        <button class="submit-btn" onclick="submitFoundItem()">
+            Submit Found Item
+        </button>
+
+
+    </div>
+
+</div>
+
+
+<!-- Feed Page -->
+<div id="feedPage" class="page">
+
+    <div class="feed-container">
+
+        <h1>Found Items Feed</h1>
+
+
+        <ul class="item-list">
+
+            <!-- Item 1 -->
+            <li class="item-card">
+
+                <h2>Black Wallet</h2>
+
+                <p>
+                    <strong>Location:</strong> Cafeteria
+                </p>
+
+                <button onclick="showItemDetails(1)">
+                    Claim
+                </button>
+
+                <div id="itemDetails1" class="item-details">
+                    <ul>
+                        <li>Color: Black</li>
+                        <li>Company: LeatherCraft</li>
+                        <li>Logo: Silver mark</li>
+                        <li>Size: Medium</li>
+                        <li>Material: Leather</li>
+                    </ul>
+                </div>
+
+            </li>
+
+
+
+            <!-- Item 2 -->
+            <li class="item-card">
+
+                <h2>Blue Backpack</h2>
+
+                <p>
+                    <strong>Location:</strong> Library Building
+                </p>
+
+                <button onclick="showItemDetails(2)">
+                    Claim
+                </button>
+
+                <div id="itemDetails2" class="item-details">
+
+                    <ul>
+                        <li>Color: Blue</li>
+                        <li>Company: American Tourister</li>
+                        <li>Logo: White logo</li>
+                        <li>Size: Large</li>
+                        <li>Material: Polyester</li>
+                    </ul>
+
+                </div>
+
+            </li>
+
+
+
+            <!-- Item 3 -->
+            <li class="item-card">
+
+                <h2>Smartphone</h2>
+
+                <p>
+                    <strong>Location:</strong> Engineering Lab
+                </p>
+
+                <button onclick="showItemDetails(3)">
+                    Claim
+                </button>
+
+
+                <div id="itemDetails3" class="item-details">
+
+                    <ul>
+                        <li>Color: Midnight Black</li>
+                        <li>Company: Samsung</li>
+                        <li>Model: Galaxy S Series</li>
+                        <li>Size: 6.5 inch</li>
+                        <li>Logo: Samsung</li>
+                    </ul>
+
+                </div>
+
+            </li>
+
+
+        </ul>
+
+    </div>
+
+</div>
+
+    <script src="js/app.js"></script>
+
+    </body>
+</html>
