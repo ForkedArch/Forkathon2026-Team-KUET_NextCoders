@@ -1,11 +1,19 @@
 // Page Navigation
+
 let selectedItemId = null;
-function showPage(pageId) {
-    document.querySelectorAll(".page").forEach(page => {
+let currentUserType = "";
+
+function showPage(pageId){
+
+    document.querySelectorAll(".page").forEach(page=>{
         page.style.display = "none";
     });
 
     document.getElementById(pageId).style.display = "flex";
+
+    if(pageId === "feedPage"){
+        updateFeedButtons();
+    }
 }
 
 
@@ -14,88 +22,148 @@ function showPage(pageId) {
 function handleLogin(type) {
 
     const studentId = document.getElementById("studentId").value.trim();
-    const contactNumber = document.getElementById("contactNumber").value.trim();
+    const phoneNumber = document.getElementById("contactNumber").value.trim();
 
-    if(studentId === "" || contactNumber === "") {
-        alert("Please enter Student ID and Contact Number");
+    if(studentId === "" || phoneNumber === ""){
+        alert("Please enter Student ID and Phone Number");
         return;
     }
 
     localStorage.setItem("studentId", studentId);
-    localStorage.setItem("contactNumber", contactNumber);
+    localStorage.setItem("phoneNumber", phoneNumber);
 
 
-    if(type === "found") {
+    if(type === "found"){
+
+        currentUserType = "found";
         showPage("foundItemPage");
+
     }
 
-    else if(type==="lost"){
-    alert("Lost item page coming soon");
+    else if(type === "lost"){
+
+        currentUserType = "lost";
+        showPage("feedPage");
+
+    }
+
 }
-}
+
 
 // Initial Page
 
 showPage("loginPage");
 
-function submitFoundItem() {
+
+// Submit Found Item
+
+function submitFoundItem(){
 
     const itemName = document.getElementById("foundItemName").value;
     const location = document.getElementById("foundLocation").value;
 
-    if(itemName === "" || location === "") {
+
+    if(itemName === "" || location === ""){
         alert("Please fill Item Name and Location");
         return;
     }
 
 
     const foundItem = {
+
         name: itemName,
+
         location: location,
 
-        features: [
+
+        submittedBy:{
+
+            studentId: localStorage.getItem("studentId"),
+
+            phoneNumber: localStorage.getItem("phoneNumber")
+
+        },
+
+
+        features:[
+
             {
                 property: document.getElementById("feature1Name").value,
                 value: document.getElementById("feature1Value").value
             },
+
             {
                 property: document.getElementById("feature2Name").value,
                 value: document.getElementById("feature2Value").value
             },
+
             {
                 property: document.getElementById("feature3Name").value,
                 value: document.getElementById("feature3Value").value
             }
+
         ]
+
     };
 
 
     console.log(foundItem);
 
-alert("Added to database");
+    alert("Added to database");
 
-showPage("feedPage");
+    currentUserType = "found";
 
-
-
-
-}
-
-function showItemDetails(id) {
-
-    const details = document.getElementById("itemDetails" + id);
-
-    if(details.style.display === "block") {
-        details.style.display = "none";
-    }
-
-    else {
-        details.style.display = "block";
-    }
+    showPage("feedPage");
 
 }
 
-// Dummy database response
+
+
+// Feed Item Action
+
+function handleItemAction(itemId){
+
+    if(currentUserType === "lost"){
+
+        openClaimPopup(itemId);
+
+    }
+
+    else if(currentUserType === "found"){
+
+        alert("Respond option selected. Future version will connect lost person details.");
+
+    }
+
+}
+
+
+
+// Change button text according to user
+
+function updateFeedButtons(){
+
+    document.querySelectorAll(".action-btn").forEach(button=>{
+
+        if(currentUserType === "lost"){
+
+            button.innerHTML = "Claim";
+
+        }
+
+        else if(currentUserType === "found"){
+
+            button.innerHTML = "Respond";
+
+        }
+
+    });
+
+}
+
+
+
+// Dummy database entries
 
 const items = {
 
@@ -104,21 +172,15 @@ const items = {
         location:"Cafeteria",
 
         features:[
-            {
-                name:"Color",
-                answer:"Black"
-            },
-            {
-                name:"Company",
-                answer:"LeatherCraft"
-            },
-            {
-                name:"Logo",
-                answer:"Silver"
-            }
+            {name:"Color", answer:"Black"},
+            {name:"Company", answer:"LeatherCraft"},
+            {name:"Logo", answer:"Silver"}
         ],
 
-        ownerContact:"017XXXXXXXX"
+        submittedBy:{
+            phoneNumber:"017XXXXXXXX"
+        }
+
     },
 
 
@@ -127,21 +189,15 @@ const items = {
         location:"Library Building",
 
         features:[
-            {
-                name:"Color",
-                answer:"Blue"
-            },
-            {
-                name:"Brand",
-                answer:"American Tourister"
-            },
-            {
-                name:"Size",
-                answer:"Large"
-            }
+            {name:"Color", answer:"Blue"},
+            {name:"Brand", answer:"American Tourister"},
+            {name:"Size", answer:"Large"}
         ],
 
-        ownerContact:"018XXXXXXXX"
+        submittedBy:{
+            phoneNumber:"018XXXXXXXX"
+        }
+
     },
 
 
@@ -150,28 +206,22 @@ const items = {
         location:"Engineering Lab",
 
         features:[
-            {
-                name:"Color",
-                answer:"Black"
-            },
-            {
-                name:"Model",
-                answer:"Galaxy S Series"
-            },
-            {
-                name:"Storage",
-                answer:"128GB"
-            }
+            {name:"Color", answer:"Black"},
+            {name:"Model", answer:"Galaxy S Series"},
+            {name:"Storage", answer:"128GB"}
         ],
 
-        ownerContact:"019XXXXXXXX"
+        submittedBy:{
+            phoneNumber:"019XXXXXXXX"
+        }
+
     }
 
 };
 
 
 
-// Open Claim Popup
+// Claim Popup
 
 function openClaimPopup(itemId){
 
@@ -179,38 +229,26 @@ function openClaimPopup(itemId){
 
     let item = items[itemId];
 
-
-    document.getElementById("claimPopup").style.display="flex";
-
-
-    document.getElementById("claimItemName").value =
-        item.name;
+    document.getElementById("claimPopup").style.display = "flex";
 
 
-    document.getElementById("claimLocation").value =
-        item.location;
+    document.getElementById("claimItemName").value = item.name;
+
+    document.getElementById("claimLocation").value = item.location;
 
 
+    let featureBox = document.getElementById("featureQuestions");
 
-    let featureBox =
-        document.getElementById("featureQuestions");
-
-
-    featureBox.innerHTML="";
-
+    featureBox.innerHTML = "";
 
 
     item.features.forEach((feature,index)=>{
-
 
         featureBox.innerHTML += `
 
         <div class="input-group">
 
-            <label>
-                ${feature.name}
-            </label>
-
+            <label>${feature.name}</label>
 
             <input 
                 type="text"
@@ -222,9 +260,7 @@ function openClaimPopup(itemId){
 
         `;
 
-
     });
-
 
 }
 
@@ -234,14 +270,14 @@ function openClaimPopup(itemId){
 
 function closeClaimPopup(){
 
-    document.getElementById("claimPopup")
-    .style.display="none";
+    document.getElementById("claimPopup").style.display = "none";
 
 }
 
 
 
-// Verify Button
+// Verification
+
 function verifyClaim(){
 
     let item = items[selectedItemId];
@@ -251,13 +287,11 @@ function verifyClaim(){
 
     item.features.forEach((feature,index)=>{
 
-
         let userAnswer =
         document.getElementById("answer"+index)
         .value
         .trim()
         .toLowerCase();
-
 
 
         if(userAnswer !== feature.answer.toLowerCase()){
@@ -266,46 +300,34 @@ function verifyClaim(){
 
         }
 
-
     });
 
 
 
     if(correct){
 
-
-        document.getElementById("featureQuestions")
-        .innerHTML = `
+        document.getElementById("featureQuestions").innerHTML = `
 
         <div class="success-message">
 
             <h3>Verification Successful</h3>
 
-            <p>
-            The item belongs to you.
-            </p>
-
+            <p>The item belongs to you.</p>
 
             <p>
             Contact Found Person:
-            <strong>
-            ${item.ownerContact}
-            </strong>
+            <strong>${item.submittedBy.phoneNumber}</strong>
             </p>
 
         </div>
 
         `;
 
-
     }
-
 
     else{
 
-
-        document.getElementById("featureQuestions")
-        .innerHTML = `
+        document.getElementById("featureQuestions").innerHTML = `
 
         <div class="error-message">
 
@@ -313,13 +335,11 @@ function verifyClaim(){
 
             <p>
             The provided details do not match.
-            Please check your answers.
             </p>
 
         </div>
 
         `;
-
 
     }
 
