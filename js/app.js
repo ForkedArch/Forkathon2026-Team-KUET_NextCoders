@@ -1,425 +1,660 @@
-// Page Navigation
+import { Item, User } from "./class.js";
+
+const API_URL = "http://localhost:3000";
 
 let selectedItemId = null;
 let currentUserType = "";
+let allItems = [];
 
-function showPage(pageId){
 
-    document.querySelectorAll(".page").forEach(page=>{
+// =====================================================
+// PAGE NAVIGATION
+// =====================================================
+
+function showPage(pageId) {
+
+    document.querySelectorAll(".page").forEach(page => {
         page.style.display = "none";
     });
 
-    document.getElementById(pageId).style.display = "flex";
+    const page = document.getElementById(pageId);
 
-    if(pageId === "feedPage"){
-        updateFeedButtons();
+    if (page) {
+        page.style.display = "flex";
+    }
+
+    if (pageId === "feedPage") {
+        loadFeed();
     }
 }
 
 
-// Login Handler
-
-function handleLogin(type) {
-
+// =====================================================
+// LOGIN
+// =====================================================
+async function handleLogin(type) {
     const studentId = document.getElementById("studentId").value.trim();
-    const phoneNumber = document.getElementById("contactNumber").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-    if(studentId === "" || phoneNumber === ""){
-        alert("Please enter Student ID and Phone Number");
+    if (studentId === "" || password === "") {
+        alert("Please enter Student ID and Password");
         return;
     }
 
-    localStorage.setItem("studentId", studentId);
-    localStorage.setItem("phoneNumber", phoneNumber);
+    try {
+        // Get all users
+        const response = await fetch(`${API_URL}/users`);
 
+        if (!response.ok) {
+            throw new Error("Failed to fetch users");
+        }
 
-    if(type === "found"){
+        const users = await response.json();
 
-        currentUserType = "found";
-        showPage("foundItemPage");
+        // Check login manually
+        const user = users.find(
+            u => String(u.roll).trim() === studentId &&
+                 String(u.password).trim() === password
+        );
 
+        if (!user) {
+            alert("Invalid Student ID or Password");
+            return;
+        }
+
+        // Login successful
+        localStorage.setItem("studentId", studentId);
+        currentUserType = type;
+
+        if (type === "found") {
+            showPage("foundItemPage");
+        } else {
+            showPage("feedPage");
+        }
+
+    } catch (err) {
+        console.error(err);
+        alert("Could not reach the server. Make sure json-server is running on port 3000.");
     }
-
-    else if(type === "lost"){
-
-        currentUserType = "lost";
-        showPage("feedPage");
-
-    }
-
 }
 
-
-// Initial Page
+// =====================================================
+// INITIAL PAGE
+// =====================================================
 
 showPage("loginPage");
 
 
-// Submit Found Item
+// =====================================================
+// SUBMIT FOUND ITEM
+// =====================================================
 
-function submitFoundItem(){
+async function submitFoundItem() {
 
-    const itemName = document.getElementById("foundItemName").value;
-    const location = document.getElementById("foundLocation").value;
+    const itemName = document
+        .getElementById("foundItemName")
+        .value
+        .trim();
+
+    const location = document
+        .getElementById("foundLocation")
+        .value
+        .trim();
+
+    const contact = document
+        .getElementById("foundContact")
+        .value
+        .trim();
 
 
-    if(itemName === "" || location === ""){
-        alert("Please fill Item Name and Location");
+    if (
+        itemName === "" ||
+        location === "" ||
+        contact === ""
+    ) {
+
+        alert(
+            "Please fill Item Name, Location and Contact Number"
+        );
+
         return;
     }
 
 
-    const foundItem = {
-
-        name: itemName,
-
-        location: location,
+    const roll = localStorage.getItem("studentId");
 
 
-        submittedBy:{
+    if (!roll) {
 
-            studentId: localStorage.getItem("studentId"),
+        alert("Please login first");
+        showPage("loginPage");
 
-            phoneNumber: localStorage.getItem("phoneNumber")
+        return;
+    }
 
-        },
+
+    const item = new Item(
+
+        roll,
+        contact,
+        itemName,
+        location,
+
+        document.getElementById("feature1Name").value,
+        document.getElementById("feature1Value").value.trim(),
+
+        document.getElementById("feature2Name").value,
+        document.getElementById("feature2Value").value.trim(),
+
+        document.getElementById("feature3Name").value,
+        document.getElementById("feature3Value").value.trim()
+    );
 
 
-        features:[
+    try {
 
-            {
-                property: document.getElementById("feature1Name").value,
-                value: document.getElementById("feature1Value").value
+        const response = await fetch(`${API_URL}/items`, {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
             },
 
-            {
-                property: document.getElementById("feature2Name").value,
-                value: document.getElementById("feature2Value").value
-            },
+            body: JSON.stringify(item)
 
-            {
-                property: document.getElementById("feature3Name").value,
-                value: document.getElementById("feature3Value").value
-            }
-
-        ]
-
-    };
+        });
 
 
-    console.log(foundItem);
+        if (!response.ok) {
+            throw new Error("Failed to save item");
+        }
 
-    alert("Added to database");
 
-    currentUserType = "found";
+        alert("Found item added successfully!");
 
-    showPage("feedPage");
 
+        // Clear form
+        document.getElementById("foundItemName").value = "";
+        document.getElementById("foundLocation").value = "";
+        document.getElementById("foundContact").value = "";
+
+        document.getElementById("feature1Name").value = "";
+        document.getElementById("feature1Value").value = "";
+
+        document.getElementById("feature2Name").value = "";
+        document.getElementById("feature2Value").value = "";
+
+        document.getElementById("feature3Name").value = "";
+        document.getElementById("feature3Value").value = "";
+
+
+        currentUserType = "found";
+
+        showPage("feedPage");
+
+
+    } catch (err) {
+
+        console.error(err);
+
+        alert(
+            "Could not save the item. Make sure json-server is running on port 3000."
+        );
+    }
 }
 
 
+// =====================================================
+// LOAD FEED
+// =====================================================
 
-// Feed Item Action
-
-function handleItemAction(itemId){
-
-    if(currentUserType === "lost"){
-
-        openClaimPopup(itemId);
-
-    }
-
-    else if(currentUserType === "found"){
-
-        openRespondPopup(itemId);
-
-    }
-
-}
-
-
-
-// Change button text according to user
-
-function updateFeedButtons(){
+async function loadFeed() {
 
     const heading = document.getElementById("feedHeading");
 
-    if(currentUserType === "lost"){
+    const list = document.getElementById("itemList");
+
+
+    if (currentUserType === "lost") {
 
         heading.textContent = "Found Items Feed";
 
-    }
-
-    else if(currentUserType === "found"){
+    } else {
 
         heading.textContent = "Lost Items Feed";
-
     }
 
 
-    document.querySelectorAll(".action-btn").forEach(button=>{
+    list.innerHTML = "<p>Loading items...</p>";
 
-        if(currentUserType === "lost"){
 
-            button.innerHTML = "Claim";
+    try {
 
+        const response = await fetch(`${API_URL}/items`);
+
+
+        if (!response.ok) {
+            throw new Error("Failed to load items");
         }
 
-        else if(currentUserType === "found"){
 
-            button.innerHTML = "Respond";
+        allItems = await response.json();
 
+        renderFeed();
+
+
+    } catch (err) {
+
+        console.error(err);
+
+        list.innerHTML =
+            "<p>Could not load items. Make sure json-server is running on port 3000.</p>";
+    }
+}
+
+
+// =====================================================
+// RENDER FEED
+// =====================================================
+
+function renderFeed() {
+
+    const list = document.getElementById("itemList");
+
+    list.innerHTML = "";
+
+
+    if (allItems.length === 0) {
+
+        list.innerHTML = "<p>No items reported yet.</p>";
+
+        return;
+    }
+
+
+    allItems.forEach(item => {
+
+        const li = document.createElement("li");
+
+        li.className = "item-card";
+
+
+        const featuresHtml = getFeaturePairs(item)
+            .map(feature => {
+
+                return `
+                    <li>
+                        <strong>${escapeHTML(feature.key)}:</strong>
+                        ${escapeHTML(feature.value)}
+                    </li>
+                `;
+
+            })
+            .join("");
+
+
+        li.innerHTML = `
+
+            <h2>${escapeHTML(item.itemName)}</h2>
+
+            <p>
+                <strong>Location:</strong>
+                ${escapeHTML(item.location)}
+            </p>
+
+            <button
+                class="action-btn"
+                onclick="handleItemAction('${item.id}')"
+            >
+                ${currentUserType === "lost"
+                    ? "Claim"
+                    : "Respond"}
+            </button>
+
+            <div
+                id="itemDetails${item.id}"
+                class="item-details"
+            >
+                <ul>
+                    ${featuresHtml}
+                </ul>
+            </div>
+
+        `;
+
+
+        list.appendChild(li);
+    });
+}
+
+
+// =====================================================
+// ESCAPE HTML
+// =====================================================
+
+function escapeHTML(value) {
+
+    const div = document.createElement("div");
+
+    div.textContent = value ?? "";
+
+    return div.innerHTML;
+}
+
+
+// =====================================================
+// GET FEATURES
+// =====================================================
+
+function getFeaturePairs(item) {
+
+    const pairs = [];
+
+
+    [1, 2, 3].forEach(number => {
+
+        const key = item[`fkey${number}`];
+
+        const value = item[`fvalue${number}`];
+
+
+        if (
+            key &&
+            key.trim() !== "" &&
+            value &&
+            value.trim() !== ""
+        ) {
+
+            pairs.push({
+                key: key,
+                value: value
+            });
         }
 
     });
 
+
+    return pairs;
 }
 
 
+// =====================================================
+// ITEM ACTION
+// =====================================================
 
-// Dummy database entries
+function handleItemAction(itemId) {
 
-const items = {
+    if (currentUserType === "lost") {
 
-    1:{
-        name:"Black Wallet",
-        location:"Cafeteria",
+        openClaimPopup(itemId);
 
-        features:[
-            {name:"Color", answer:"Black"},
-            {name:"Company", answer:"LeatherCraft"},
-            {name:"Logo", answer:"Silver"}
-        ],
+    } else if (currentUserType === "found") {
 
-        submittedBy:{
-            phoneNumber:"017XXXXXXXX"
-        },
-
-        reportedLostBy:{
-            phoneNumber:"015XXXXXXXX"
-        }
-
-    },
-
-
-    2:{
-        name:"Blue Backpack",
-        location:"Library Building",
-
-        features:[
-            {name:"Color", answer:"Blue"},
-            {name:"Brand", answer:"American Tourister"},
-            {name:"Size", answer:"Large"}
-        ],
-
-        submittedBy:{
-            phoneNumber:"018XXXXXXXX"
-        },
-
-        reportedLostBy:{
-            phoneNumber:"016XXXXXXXX"
-        }
-
-    },
-
-
-    3:{
-        name:"Samsung Phone",
-        location:"Engineering Lab",
-
-        features:[
-            {name:"Color", answer:"Black"},
-            {name:"Model", answer:"Galaxy S Series"},
-            {name:"Storage", answer:"128GB"}
-        ],
-
-        submittedBy:{
-            phoneNumber:"019XXXXXXXX"
-        }
-
-        // No "reportedLostBy" yet — demonstrates the case where
-        // nobody has reported losing this item so far.
-
+        openRespondPopup(itemId);
     }
-
-};
-
+}
 
 
-// Claim Popup
+// =====================================================
+// FIND ITEM
+// =====================================================
 
-function openClaimPopup(itemId){
+function findItem(itemId) {
+
+    return allItems.find(
+        item => String(item.id) === String(itemId)
+    );
+}
+
+
+// =====================================================
+// CLAIM POPUP
+// =====================================================
+
+function openClaimPopup(itemId) {
 
     selectedItemId = itemId;
 
-    let item = items[itemId];
+
+    const item = findItem(itemId);
+
+    if (!item) {
+        return;
+    }
+
 
     document.getElementById("claimPopup").style.display = "flex";
 
 
-    document.getElementById("claimItemName").value = item.name;
+    document.getElementById("claimItemName").value =
+        item.itemName;
 
-    document.getElementById("claimLocation").value = item.location;
+
+    document.getElementById("claimLocation").value =
+        item.location;
 
 
-    let featureBox = document.getElementById("featureQuestions");
+    const featureBox =
+        document.getElementById("featureQuestions");
+
 
     featureBox.innerHTML = "";
 
 
-    item.features.forEach((feature,index)=>{
+    getFeaturePairs(item).forEach((feature, index) => {
 
-        featureBox.innerHTML += `
+        const div = document.createElement("div");
 
-        <div class="input-group">
+        div.className = "input-group";
 
-            <label>${feature.name}</label>
 
-            <input 
+        div.innerHTML = `
+
+            <label>
+                ${escapeHTML(feature.key)}
+            </label>
+
+            <input
                 type="text"
                 id="answer${index}"
-                placeholder="Enter ${feature.name}"
+                placeholder="Enter ${escapeHTML(feature.key)}"
             >
-
-        </div>
 
         `;
 
+
+        featureBox.appendChild(div);
     });
-
 }
 
 
+// =====================================================
+// CLOSE CLAIM POPUP
+// =====================================================
 
-// Close Popup
+function closeClaimPopup() {
 
-function closeClaimPopup(){
-
-    document.getElementById("claimPopup").style.display = "none";
-
+    document.getElementById("claimPopup").style.display =
+        "none";
 }
 
 
+// =====================================================
+// RESPOND POPUP
+// =====================================================
 
-// Respond Popup (Found flow)
+function openRespondPopup(itemId) {
 
-function openRespondPopup(itemId){
+    const item = findItem(itemId);
 
-    let item = items[itemId];
-
-    document.getElementById("respondPopup").style.display = "flex";
-
-
-    document.getElementById("respondItemName").value = item.name;
-
-    document.getElementById("respondLocation").value = item.location;
+    if (!item) {
+        return;
+    }
 
 
-    let featureList = document.getElementById("respondFeatureList");
+    document.getElementById("respondPopup").style.display =
+        "flex";
+
+
+    document.getElementById("respondItemName").value =
+        item.itemName;
+
+
+    document.getElementById("respondLocation").value =
+        item.location;
+
+
+    const featureList =
+        document.getElementById("respondFeatureList");
+
 
     featureList.innerHTML = "";
 
-    item.features.forEach(feature=>{
 
-        featureList.innerHTML += `<li>${feature.name}: ${feature.answer}</li>`;
+    getFeaturePairs(item).forEach(feature => {
 
+        const li = document.createElement("li");
+
+        li.textContent =
+            `${feature.key}: ${feature.value}`;
+
+        featureList.appendChild(li);
     });
 
 
-    let contactEl = document.getElementById("respondContactNumber");
-
-    if(item.reportedLostBy && item.reportedLostBy.phoneNumber){
-
-        contactEl.textContent = item.reportedLostBy.phoneNumber;
-
-    }
-
-    else{
-
-        contactEl.textContent = "No one has reported losing this item yet.";
-
-    }
-
+    document.getElementById("respondContactNumber")
+        .textContent = item.contact;
 }
 
 
+// =====================================================
+// CLOSE RESPOND POPUP
+// =====================================================
 
-// Close Respond Popup
+function closeRespondPopup() {
 
-function closeRespondPopup(){
-
-    document.getElementById("respondPopup").style.display = "none";
-
+    document.getElementById("respondPopup").style.display =
+        "none";
 }
 
 
+// =====================================================
+// VERIFY CLAIM
+// =====================================================
 
-// Verification
+function verifyClaim() {
 
-function verifyClaim(){
+    const item = findItem(selectedItemId);
 
-    let item = items[selectedItemId];
+
+    if (!item) {
+        return;
+    }
+
+
+    const pairs = getFeaturePairs(item);
+
 
     let correct = true;
 
 
-    item.features.forEach((feature,index)=>{
+    pairs.forEach((feature, index) => {
 
-        let userAnswer =
-        document.getElementById("answer"+index)
-        .value
-        .trim()
-        .toLowerCase();
+        const input =
+            document.getElementById(`answer${index}`);
 
 
-        if(userAnswer !== feature.answer.toLowerCase()){
+        if (!input) {
 
             correct = false;
 
+            return;
+        }
+
+
+        const userAnswer =
+            input.value
+                .trim()
+                .toLowerCase();
+
+
+        const correctAnswer =
+            feature.value
+                .trim()
+                .toLowerCase();
+
+
+        if (userAnswer !== correctAnswer) {
+
+            correct = false;
         }
 
     });
 
 
+    const featureQuestions =
+        document.getElementById("featureQuestions");
 
-    if(correct){
 
-        document.getElementById("featureQuestions").innerHTML = `
+    if (correct) {
 
-        <div class="success-message">
+        featureQuestions.innerHTML = `
 
-            <h3>Verification Successful</h3>
+            <div class="success-message">
 
-            <p>The item belongs to you.</p>
+                <h3>
+                    Verification Successful
+                </h3>
 
-            <p>
-            Contact Found Person:
-            <strong>${item.submittedBy.phoneNumber}</strong>
-            </p>
+                <p>
+                    The item belongs to you.
+                </p>
 
-        </div>
+                <p>
+                    Contact Found Person:
+                    <strong>
+                        ${escapeHTML(item.contact)}
+                    </strong>
+                </p>
 
-        `;
-
-    }
-
-    else{
-
-        document.getElementById("featureQuestions").innerHTML = `
-
-        <div class="error-message">
-
-            <h3>Verification Failed</h3>
-
-            <p>
-            The provided details do not match.
-            </p>
-
-        </div>
+            </div>
 
         `;
 
-    }
+    } else {
 
+        featureQuestions.innerHTML = `
+
+            <div class="error-message">
+
+                <h3>
+                    Verification Failed
+                </h3>
+
+                <p>
+                    The provided details do not match.
+                </p>
+
+            </div>
+
+        `;
+    }
 }
+
+
+// =====================================================
+// GLOBAL FUNCTIONS
+// =====================================================
+
+window.handleLogin = handleLogin;
+
+window.submitFoundItem = submitFoundItem;
+
+window.handleItemAction = handleItemAction;
+
+window.closeClaimPopup = closeClaimPopup;
+
+window.closeRespondPopup = closeRespondPopup;
+
+window.verifyClaim = verifyClaim;
