@@ -29,9 +29,9 @@ function handleLogin(type) {
         showPage("foundItemPage");
     }
 
-    else if(type === "lost") {
-        showPage("lostItemPage");
-    }
+    else if(type==="lost"){
+    alert("Lost item page coming soon");
+}
 }
 
 // Initial Page
@@ -208,14 +208,14 @@ function openClaimPopup(itemId){
         <div class="input-group">
 
             <label>
-                ${feature}
+                ${feature.name}
             </label>
 
 
             <input 
                 type="text"
                 id="answer${index}"
-                placeholder="Enter ${feature}"
+                placeholder="Enter ${feature.name}"
             >
 
         </div>
