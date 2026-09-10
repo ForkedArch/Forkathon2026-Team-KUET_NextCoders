@@ -224,3 +224,96 @@
     padding-left: 20px;
 
 }
+
+
+/* Claim Popup */
+
+
+.popup {
+
+    display: none;
+
+    position: fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background: rgba(0,0,0,0.5);
+
+    justify-content:center;
+    align-items:center;
+
+}
+
+
+
+.popup-content {
+
+    background:white;
+
+    width:450px;
+
+    padding:30px;
+
+    border-radius:15px;
+
+    position:relative;
+
+}
+
+
+
+.close-btn {
+
+    position:absolute;
+
+    right:20px;
+
+    top:10px;
+
+    font-size:25px;
+
+    cursor:pointer;
+
+}
+
+
+
+#featureQuestions .input-group {
+
+    margin-bottom:15px;
+
+}
+
+.success-message{
+
+    background:#dcfce7;
+
+    color:#166534;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    margin-top:15px;
+
+}
+
+
+
+.error-message{
+
+    background:#fee2e2;
+
+    color:#991b1b;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    margin-top:15px;
+
+}

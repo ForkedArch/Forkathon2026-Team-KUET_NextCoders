@@ -190,9 +190,9 @@
                     <strong>Location:</strong> Cafeteria
                 </p>
 
-                <button onclick="showItemDetails(1)">
-                    Claim
-                </button>
+               <button onclick="openClaimPopup(1)">
+    Claim
+</button>
 
                 <div id="itemDetails1" class="item-details">
                     <ul>
@@ -217,10 +217,9 @@
                     <strong>Location:</strong> Library Building
                 </p>
 
-                <button onclick="showItemDetails(2)">
-                    Claim
-                </button>
-
+              <button onclick="openClaimPopup(2)">
+    Claim
+</button>
                 <div id="itemDetails2" class="item-details">
 
                     <ul>
@@ -245,10 +244,9 @@
                 <p>
                     <strong>Location:</strong> Engineering Lab
                 </p>
-
-                <button onclick="showItemDetails(3)">
-                    Claim
-                </button>
+<button onclick="openClaimPopup(3)">
+    Claim
+</button>
 
 
                 <div id="itemDetails3" class="item-details">
@@ -267,6 +265,75 @@
 
 
         </ul>
+
+    </div>
+
+</div>
+
+
+
+
+<!-- Claim Verification Popup -->
+
+<div id="claimPopup" class="popup">
+
+    <div class="popup-content">
+
+        <span class="close-btn" onclick="closeClaimPopup()">
+            ×
+        </span>
+
+
+        <h2>Claim Item Verification</h2>
+
+
+        <div class="input-group">
+
+            <label>Item Name</label>
+
+            <input 
+                type="text" 
+                id="claimItemName"
+                readonly
+            >
+
+        </div>
+
+
+
+        <div class="input-group">
+
+            <label>Location</label>
+
+            <input 
+                type="text"
+                id="claimLocation"
+                readonly
+            >
+
+        </div>
+
+
+
+        <h3>Verify Item Features</h3>
+
+
+        <div id="featureQuestions">
+
+            <!-- Features will be generated here -->
+
+        </div>
+
+
+
+        <button 
+            class="submit-btn"
+            onclick="verifyClaim()">
+
+            Verify
+
+        </button>
+
 
     </div>
 
