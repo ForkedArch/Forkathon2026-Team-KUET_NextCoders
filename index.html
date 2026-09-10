@@ -176,7 +176,7 @@
 
     <div class="feed-container">
 
-        <h1>Found Items Feed</h1>
+        <h1 id="feedHeading">Found Items Feed</h1>
 
 
         <ul class="item-list">
@@ -190,7 +190,7 @@
                     <strong>Location:</strong> Cafeteria
                 </p>
 
-               <button onclick="openClaimPopup(1)">
+               <button class="action-btn" onclick="handleItemAction(1)">
     Claim
 </button>
 
@@ -217,7 +217,7 @@
                     <strong>Location:</strong> Library Building
                 </p>
 
-              <button onclick="openClaimPopup(2)">
+              <button class="action-btn" onclick="handleItemAction(2)">
     Claim
 </button>
                 <div id="itemDetails2" class="item-details">
@@ -244,7 +244,7 @@
                 <p>
                     <strong>Location:</strong> Engineering Lab
                 </p>
-<button onclick="openClaimPopup(3)">
+<button class="action-btn" onclick="handleItemAction(3)">
     Claim
 </button>
 
@@ -333,6 +333,68 @@
             Verify
 
         </button>
+
+
+    </div>
+
+</div>
+
+
+<!-- Respond Popup (Found flow) -->
+
+<div id="respondPopup" class="popup">
+
+    <div class="popup-content">
+
+        <span class="close-btn" onclick="closeRespondPopup()">
+            ×
+        </span>
+
+
+        <h2>Item Details</h2>
+
+
+        <div class="input-group">
+
+            <label>Item Name</label>
+
+            <input 
+                type="text" 
+                id="respondItemName"
+                readonly
+            >
+
+        </div>
+
+
+
+        <div class="input-group">
+
+            <label>Location</label>
+
+            <input 
+                type="text"
+                id="respondLocation"
+                readonly
+            >
+
+        </div>
+
+
+
+        <h3>Features</h3>
+
+        <ul id="respondFeatureList"></ul>
+
+
+
+        <div class="contact-info">
+
+            <p>Contact number of the person who reported losing this item:</p>
+
+            <p><strong id="respondContactNumber"></strong></p>
+
+        </div>
 
 
     </div>

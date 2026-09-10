@@ -131,7 +131,7 @@ function handleItemAction(itemId){
 
     else if(currentUserType === "found"){
 
-        alert("Respond option selected. Future version will connect lost person details.");
+        openRespondPopup(itemId);
 
     }
 
@@ -142,6 +142,21 @@ function handleItemAction(itemId){
 // Change button text according to user
 
 function updateFeedButtons(){
+
+    const heading = document.getElementById("feedHeading");
+
+    if(currentUserType === "lost"){
+
+        heading.textContent = "Found Items Feed";
+
+    }
+
+    else if(currentUserType === "found"){
+
+        heading.textContent = "Lost Items Feed";
+
+    }
+
 
     document.querySelectorAll(".action-btn").forEach(button=>{
 
@@ -179,6 +194,10 @@ const items = {
 
         submittedBy:{
             phoneNumber:"017XXXXXXXX"
+        },
+
+        reportedLostBy:{
+            phoneNumber:"015XXXXXXXX"
         }
 
     },
@@ -196,6 +215,10 @@ const items = {
 
         submittedBy:{
             phoneNumber:"018XXXXXXXX"
+        },
+
+        reportedLostBy:{
+            phoneNumber:"016XXXXXXXX"
         }
 
     },
@@ -214,6 +237,9 @@ const items = {
         submittedBy:{
             phoneNumber:"019XXXXXXXX"
         }
+
+        // No "reportedLostBy" yet — demonstrates the case where
+        // nobody has reported losing this item so far.
 
     }
 
@@ -271,6 +297,59 @@ function openClaimPopup(itemId){
 function closeClaimPopup(){
 
     document.getElementById("claimPopup").style.display = "none";
+
+}
+
+
+
+// Respond Popup (Found flow)
+
+function openRespondPopup(itemId){
+
+    let item = items[itemId];
+
+    document.getElementById("respondPopup").style.display = "flex";
+
+
+    document.getElementById("respondItemName").value = item.name;
+
+    document.getElementById("respondLocation").value = item.location;
+
+
+    let featureList = document.getElementById("respondFeatureList");
+
+    featureList.innerHTML = "";
+
+    item.features.forEach(feature=>{
+
+        featureList.innerHTML += `<li>${feature.name}: ${feature.answer}</li>`;
+
+    });
+
+
+    let contactEl = document.getElementById("respondContactNumber");
+
+    if(item.reportedLostBy && item.reportedLostBy.phoneNumber){
+
+        contactEl.textContent = item.reportedLostBy.phoneNumber;
+
+    }
+
+    else{
+
+        contactEl.textContent = "No one has reported losing this item yet.";
+
+    }
+
+}
+
+
+
+// Close Respond Popup
+
+function closeRespondPopup(){
+
+    document.getElementById("respondPopup").style.display = "none";
 
 }
 
