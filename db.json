@@ -11,9 +11,44 @@
       "id": "dmge2iNSWAY"
     },
     {
-      "roll": "2507027",
-      "password": "Y6nL4pK9",
-      "id": "sdi6kFkwE_4"
+      "roll": "2507001",
+      "password": "V7kP9mQ2",
+      "id": "a-65ANcb-LI"
+    },
+    {
+      "roll": "2507002",
+      "password": "R4xT8nL6",
+      "id": "-Al3oCDhcf4"
+    },
+    {
+      "roll": "2507003",
+      "password": "Z9mK3pW5",
+      "id": "RJ8c4WBp1EI"
+    },
+    {
+      "roll": "2507004",
+      "password": "H6qR8vN2",
+      "id": "B1z8u_pjQFE"
+    },
+    {
+      "roll": "2507005",
+      "password": "B3yT7kM9",
+      "id": "TVWvBOGiv1I"
+    },
+    {
+      "roll": "2507006",
+      "password": "P8dL4sX1",
+      "id": "6Kl_c2nj3Ls"
+    },
+    {
+      "roll": "2507007",
+      "password": "N5wQ9cR7",
+      "id": "4pS84P5Rjbw"
+    },
+    {
+      "roll": "2507008",
+      "password": "Y2mF6tK8",
+      "id": "H5FKhTd7btM"
     }
   ],
   "items": [
@@ -42,7 +77,71 @@
       "fvalue2": "American Tourister",
       "fkey3": "Size",
       "fvalue3": "Large"
+    },
+    {
+      "id": "3",
+      "roll": "2020331112",
+      "contact": "01915324354",
+      "itemName": "Smartphone",
+      "location": "SWC",
+      "fkey1": "Color",
+      "fvalue1": "Black",
+      "fkey2": "Company",
+      "fvalue2": "Samsung",
+      "fkey3": "Model",
+      "fvalue3": "Galaxy S Series"
+    },
+    {
+      "roll": "2507026",
+      "contact": "01315189132",
+      "itemName": "umbrella",
+      "location": "swc",
+      "fkey1": "Color",
+      "fvalue1": "red",
+      "fkey2": "Logo",
+      "fvalue2": "bmw",
+      "fkey3": "Material",
+      "fvalue3": "gold",
+      "id": "2FiwdQXzx5k"
+    },
+    {
+      "roll": "2507025",
+      "contact": "0113226546",
+      "itemName": "bag",
+      "location": "cse block404",
+      "fkey1": "Color",
+      "fvalue1": "black",
+      "fkey2": "Logo",
+      "fvalue2": "nike",
+      "fkey3": "Material",
+      "fvalue3": "fabric",
+      "id": "8WVWFkzLFOM"
+    },
+    {
+      "roll": "2507026",
+      "contact": "01730722884",
+      "itemName": "Phone",
+      "location": "Central Library",
+      "fkey1": "Color",
+      "fvalue1": "Red",
+      "fkey2": "Logo",
+      "fvalue2": "Xaomi",
+      "fkey3": "Model",
+      "fvalue3": "MI A3",
+      "id": "PPk3IPDv4ss"
+    },
+    {
+      "roll": "2507026",
+      "contact": "01730722884",
+      "itemName": "Bag",
+      "location": "Library",
+      "fkey1": "Color",
+      "fvalue1": "Red",
+      "fkey2": "Material",
+      "fvalue2": "Leather",
+      "fkey3": "Size",
+      "fvalue3": "Medium",
+      "id": "y_u1sf6srsA"
     }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  ]
 }
