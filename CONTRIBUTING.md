@@ -3,7 +3,7 @@
 ```markdown
 # Contributing
 
-This repository belongs to the Forkathon 2026 participating team:
+This repository belongs to the Forkathon 2026 participating team: KUET_NextCoders
 
 # Development Guidelines
 
