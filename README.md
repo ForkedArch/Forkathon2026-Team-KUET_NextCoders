@@ -94,21 +94,33 @@ Secure Data Release: Upon a successful match, the system releases the contact de
 
 ## 🏗️ Architecture
 
-Add your architecture diagram here.
-Demo diagram added down below
+mermaid
+flowchart TD
+    User[User]
+    Frontend["Frontend<br/>(index.html, app.js, class.js)"]
+    Backend["Backend / API<br/>(json-server REST endpoints)"]
+    Database[("Database<br/>(db.json)")]
 
-```text
-User
-  │
-  ▼
-Frontend
-  │
-  ▼
-Backend / API
-  │
-  ├── Database
-  │
-  └── External Services
-```
+    User --> Frontend
+    Frontend --> Backend
+    Backend --> Databasemermaid
+flowchart TD
+    Start([Start]) --> Login[Login]
+    Login --> Auth{Valid credentials?}
+    Auth -->|No| Login
+    Auth -->|Yes| Type{User type?}
+
+    Type -->|Found item| ReportForm[Report Found Item]
+    ReportForm --> SaveItem[Save item to database]
+    SaveItem --> Feed
+
+    Type -->|Lost item| Feed[Browse Item Feed]
+
+    Feed --> Action{User type?}
+    Action -->|Lost user| Claim[Verify secret features]
+    Claim -->|Match| Reveal[Reveal finder's contact]
+    Claim -->|No match| Feed
+
+    Action -->|Found user| Respond[View claimer's details<br/>+ contact info]
 
 <b>Forkathon: Freshers Hackathon 2026 presented by ForkedArch powered by XtendArena</b>
