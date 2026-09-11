@@ -157,6 +157,8 @@ flowchart TD
 
 ---
 
+## Installation and Setup
+
 ### JSON Server Setup
 1. Download Node.js
 
@@ -200,6 +202,7 @@ For example, if your file is named data.json:
 json-server data.json
 
 Website will be accessible via "http://localhost:3000/" on local machine.
+
 ---
 
 ## 🤖 AI Usage
