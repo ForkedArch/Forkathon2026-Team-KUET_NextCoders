@@ -1,6 +1,6 @@
 import { Item, User } from "./class.js";
 
-const API_URL = "http://localhost:3000";
+const API_URL = "https://my-json-server.typicode.com/ForkedArch/Forkathon2026-Team-KUET_NextCoders";
 
 let selectedItemId = null;
 let currentUserType = "";
