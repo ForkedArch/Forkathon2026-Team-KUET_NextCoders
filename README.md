@@ -97,8 +97,8 @@ Secure Data Release: Upon a successful match, the system releases the contact de
 ```mermaid
 flowchart TD
     User[User]
-    Frontend["Frontend<br/>(index.html, app.js, class.js)"]
-    Backend["Backend / API<br/>(json-server REST endpoints)"]
+    Frontend["Frontend<br/>(index.html, class.js, style.css)"]
+    API Connection["API Connection<br/>(app.js)"]
     Database[("Database<br/>(db.json)")]
 
     User --> Frontend
