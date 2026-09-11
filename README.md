@@ -55,57 +55,67 @@ Such incidents occur on a daily basis. Sometimes we lose a calculator, other tim
 
 ### Overview
 
-Key System Features
+**Key System Features**
 
-Dual Operational Modes
-Lost Item Reporting: Users who lose an item can submit a detailed report specifying key attributes, distinguishing features, and the precise location where it was lost.
+**Dual Operational Modes**
+- Lost Item Reporting: Users who lose an item can submit a detailed report specifying key attributes, distinguishing features, and the precise location where it was lost.
 
-Found Item Search & Response: Finders can browse active queries in the database and directly respond to reports matching the item in their possession.
+- Found Item Search & Response: Finders can browse active queries in the database and directly respond to reports matching the item in their possession.
 
-Intelligent Verification & Fraud Prevention
+**Intelligent Verification & Fraud Prevention**
 An automated cross-verification system safeguards items by prompting claimants with custom secret questions established by the finder. Because only the true owner possesses these unique answers, the system effectively prevents fraudulent claims and guarantees secure returns.
 
-Privacy-First Architecture
+**Privacy-First Architecture**
 User privacy is built into the core design. Personal contact information remains entirely hidden while browsing the database. Contact details are securely exchanged between both parties only after a successful verification match.
 
-Roadmap & Future Developments
+**Roadmap & Future Developments**
 Audit & Accountability Logging: A tracking system that logs successfully matched interactions to detect, flag, and penalize fraudulent entries or improper usage.
+
 ### How It Works
 
-Explain the complete flow of your system.
+**User Authentication:** The user logs in securely using their Student ID and contact information. Invalid / non-existent credentials are not allowed to log in.
 
-User Authentication: The user logs in securely using their Student ID and contact information.
+**Action Selection & Report Submission:**
 
-Action Selection & Report Submission:
+- Owner Path: If an item is missing, the user browses the item feed and selects the report that matches their lost item, then answers a secret verification question to confirm ownership.
 
-Owner Path: If an item is missing, the user submits a lost item report specifying its properties, description, and last known location.
+- Finder Path: If an item is found, the user submits a found item report containing details and custom verification parameters, which updates the central database.
 
-Finder Path: If an item is found, the user submits a found item report containing details and custom verification parameters, which updates the central database.
+**Database Search & Match Selection:** The system queries the database based on the user's input parameters and displays relevant matching results. The owner then selects the entry that aligns with their missing item.
 
-Database Search & Match Selection: The system queries the database based on the user's input parameters and displays relevant matching results. The owner then selects the entry that aligns with their missing item.
+**Intelligent Cross-Verification:** To establish ownership, the verification system prompts the claimant with secret questions set by the finder regarding non-obvious details of the item.
 
-Intelligent Cross-Verification: To establish ownership, the verification system prompts the claimant with secret questions set by the finder regarding non-obvious details of the item.
+**Algorithmic Trust Scoring:** The system evaluates the provided answers. If the answers are correct the match is deemed successful; otherwise, the attempt is rejected to prevent fraudulent claims.
 
-Algorithmic Trust Scoring: The system evaluates the provided answers. If the calculated trust level exceeds 90%, the match is deemed successful; otherwise, the attempt is rejected to prevent fraudulent claims.
-
-Secure Data Release: Upon a successful match, the system releases the contact details of both parties to facilitate a direct and safe exchange.
+**Secure Data Release:** Upon a successful match, the system releases the contact details of both parties to facilitate a direct and safe exchange.
 
 ---
 
-## 🏗️ Architecture
-``` mermaid
-flowchart TD
-    User[👤 User]
-    Frontend["🖥️ Frontend<br/>(index.html, class.js, style.css)"]
-    APIConnection["🔌 API Connection<br/>(app.js)"]
-    Backend["⚙️ Backend<br/>(JSON Server)"]
-    Database[("🗄️ Database<br/>(db.json)")]
+## ⚙️ Technology Stack  
 
-    User --> Frontend
-    Frontend --> APIConnection
-    APIConnection --> Backend
-    Backend --> Database
-```
+- 🖥️ **Frontend: HTML, CSS, and Vanilla JavaScript**  
+  We use 🧱 HTML for the structure, 🎨 CSS for styling, and ⚡ Vanilla JavaScript for functionality and user interaction.  
+
+- 🔧 **Backend/API: JSON Server**  
+  JSON Server acts as a lightweight backend and provides 🌐 RESTful API endpoints for handling data and CRUD operations (➕ Create, 👀 Read, ✏️ Update, 🗑️ Delete).  
+
+- 🔌 **API Connection: JavaScript Fetch API**  
+  JavaScript communicates with the JSON Server using the 📡 Fetch API to send requests and receive data.  
+
+- 🗄️ **Database/Data Storage: JSON File ("db.json")**  
+  The data is stored in a 📂 JSON file, which JSON Server uses as a simple data store. JSON itself is a data format, not a full database system.  
+
+---
+
+## System Overview
+Here we try to develop a SaaS-type web application. 
+- Users log in and credentials are checked. 
+- If someone finds something and reports it, we make a POST request to store the data in the JSON Server item list. 
+- Reported items are tracked in a separate list. 
+- If someone claims an item, they provide details. 
+- We match the claim and provide the contact number of the reporter.
+
+---
 
 ## Program Flow
 
@@ -129,4 +139,88 @@ flowchart TD
 
     Action -->|Found user| Respond[View claimer's details<br/>+ contact info]
 ```
+
+## 🏗️ Architecture
+``` mermaid
+flowchart TD
+    User[👤 User]
+    Frontend["🖥️ Frontend<br/>(index.html, class.js, style.css)"]
+    APIConnection["🔌 API Connection<br/>(app.js)"]
+    Backend["⚙️ Backend<br/>(JSON Server)"]
+    Database[("🗄️ Database<br/>(db.json)")]
+
+    User --> Frontend
+    Frontend --> APIConnection
+    APIConnection --> Backend
+    Backend --> Database
+```
+
+---
+
+### JSON Server Setup
+1. Download Node.js
+
+Download and install Node.js from the official website:
+
+https://nodejs.org/en/download
+
+2. Check Node.js Installation
+
+Open the VS Code Terminal (or Command Prompt) and run:
+
+``` 
+node --version
+```
+
+You can also check the npm version:
+
+```
+npm --version
+```
+
+If a version number is displayed, Node.js and npm have been installed successfully.
+
+3. Install JSON Server
+
+Install JSON Server globally using:
+
+npm install -g json-server
+
+4. Start JSON Server
+
+Make sure your terminal is opened in the folder containing your JSON file, then run:
+
+json-server db.json
+
+
+**Note:** Replace db.json with the name of your JSON file if it has a different name.
+
+For example, if your file is named data.json:
+
+json-server data.json
+
+Website will be accessible via "http://localhost:3000/" on local machine.
+---
+
+## 🤖 AI Usage
+We used AI tools to assist in writing parts of the codebase. The AI primarily handled the labor‑intensive tasks such as generating boilerplate code, repetitive structures, and syntax details.
+
+However, our team’s contribution was not diminished — we focused on the core logic, architecture, and ideas that shaped the application. The AI acted as a supportive tool, while we made the key design decisions, implemented the workflow, and ensured the system aligned with our vision.
+
+In other words, AI was like an engineering assistant: it helped with the heavy lifting, but the problem‑solving, creativity, and decision‑making came from us. This balance allowed us to move faster while still maintaining ownership of the project’s logic and innovation.
+
+---
+## 🧪 Testing / Quality Assurance
+The system was individually tested across multiple devices to ensure compatibility and consistent performance. Local servers were set up to validate the database collection and retrieval components, ensuring that data flows correctly between the frontend and backend. Overall, a thorough quality check was carried out on the project and its codebase to minimize unexpected issues and ensure reliability.
+---
+## 🚀 Future Improvements
+Looking ahead, several enhancements are planned to make the system more robust and user‑friendly:
+
+Inquiry‑based feed system: Users will only see items relevant to their search, improving efficiency and personalization.
+
+Image support for lost objects: The ability to upload and display images of reported items is currently in development.
+
+AI‑powered object detection and feature extraction: An intelligent system will automatically identify key attributes of an object (e.g., type, color, material) from uploaded images, making reporting and matching more accurate.
+---
+
 <b>Forkathon: Freshers Hackathon 2026 presented by ForkedArch powered by XtendArena</b>
