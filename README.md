@@ -94,7 +94,7 @@ Secure Data Release: Upon a successful match, the system releases the contact de
 
 ## 🏗️ Architecture
 
-mermaid
+```mermaid
 flowchart TD
     User[User]
     Frontend["Frontend<br/>(index.html, app.js, class.js)"]
@@ -104,6 +104,8 @@ flowchart TD
     User --> Frontend
     Frontend --> Backend
     Backend --> Databasemermaid
+```
+```mermaid
 flowchart TD
     Start([Start]) --> Login[Login]
     Login --> Auth{Valid credentials?}
@@ -122,5 +124,5 @@ flowchart TD
     Claim -->|No match| Feed
 
     Action -->|Found user| Respond[View claimer's details<br/>+ contact info]
-
+```
 <b>Forkathon: Freshers Hackathon 2026 presented by ForkedArch powered by XtendArena</b>
