@@ -215,6 +215,7 @@ In other words, AI was like an engineering assistant: it helped with the heavy l
 ---
 ## 🧪 Testing / Quality Assurance
 The system was individually tested across multiple devices to ensure compatibility and consistent performance. Local servers were set up to validate the database collection and retrieval components, ensuring that data flows correctly between the frontend and backend. Overall, a thorough quality check was carried out on the project and its codebase to minimize unexpected issues and ensure reliability.
+
 ---
 ## 🚀 Future Improvements
 Looking ahead, several enhancements are planned to make the system more robust and user‑friendly:
@@ -224,6 +225,7 @@ Inquiry‑based feed system: Users will only see items relevant to their search,
 Image support for lost objects: The ability to upload and display images of reported items is currently in development.
 
 AI‑powered object detection and feature extraction: An intelligent system will automatically identify key attributes of an object (e.g., type, color, material) from uploaded images, making reporting and matching more accurate.
+
 ---
 
 <b>Forkathon: Freshers Hackathon 2026 presented by ForkedArch powered by XtendArena</b>
