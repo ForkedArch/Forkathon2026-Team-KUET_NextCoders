@@ -1,6 +1,5 @@
 {
   "users": [
- 
     {
       "roll": "2507025",
       "password": "P9kT5dV2",
@@ -15,21 +14,6 @@
       "roll": "2507027",
       "password": "Y6nL4pK9",
       "id": "sdi6kFkwE_4"
-    },
-    {
-      "roll": "2507028",
-      "password": "H8qV2mT5",
-      "id": "WunGte0GAPI"
-    },
-    {
-      "roll": "2507029",
-      "password": "C4wR7xN3",
-      "id": "4_qt1BWkN7E"
-    },
-    {
-      "roll": "2507030",
-      "password": "M9pD5kL8",
-      "id": "34tKTQUqrAY"
     }
   ],
   "items": [
@@ -58,34 +42,7 @@
       "fvalue2": "American Tourister",
       "fkey3": "Size",
       "fvalue3": "Large"
-    },
-    {
-      "id": "3",
-      "roll": "2020331112",
-      "contact": "01915324354",
-      "itemName": "Smartphone",
-      "location": "SWC",
-      "fkey1": "Color",
-      "fvalue1": "Black",
-      "fkey2": "Company",
-      "fvalue2": "Samsung",
-      "fkey3": "Model",
-      "fvalue3": "Galaxy S Series"
-    },
-    {
-      "roll": "2507026",
-      "contact": "01315189132",
-      "itemName": "umbrella",
-      "location": "swc",
-      "fkey1": "Color",
-      "fvalue1": "red",
-      "fkey2": "Logo",
-      "fvalue2": "bmw",
-      "fkey3": "Material",
-      "fvalue3": "gold",
-      "id": "2FiwdQXzx5k"
     }
-  
   ],
   "$schema": "./node_modules/json-server/schema.json"
 }
