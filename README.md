@@ -102,9 +102,11 @@ flowchart TD
     Database[("Database<br/>(db.json)")]
 
     User --> Frontend
-    Frontend --> Backend
-    Backend --> Database
+    Frontend --> API Connection
+    API Connection --> Database
 ```
+
+## Program Flow
 
 ```mermaid
 flowchart TD
