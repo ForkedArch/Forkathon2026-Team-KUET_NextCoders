@@ -1,22 +1,496 @@
 {
   "users": [
     {
-      "roll": "2507026",
-      "password": "1122",
-      "id": "1_5k2OdcX3w"
+      "roll": "2507001",
+      "password": "V7kP9mQ2"
+    },
+    {
+      "roll": "2507002",
+      "password": "R4xT8nL6"
+    },
+    {
+      "roll": "2507003",
+      "password": "Z9mK3pW5"
+    },
+    {
+      "roll": "2507004",
+      "password": "H6qR8vN2"
+    },
+    {
+      "roll": "2507005",
+      "password": "B3yT7kM9"
+    },
+    {
+      "roll": "2507006",
+      "password": "P8dL4sX1"
+    },
+    {
+      "roll": "2507007",
+      "password": "N5wQ9cR7"
+    },
+    {
+      "roll": "2507008",
+      "password": "Y2mF6tK8"
+    },
+    {
+      "roll": "2507009",
+      "password": "C7vH3pL9"
+    },
+    {
+      "roll": "2507010",
+      "password": "M4zR8qW6"
+    },
+    {
+      "roll": "2507011",
+      "password": "T9kN5xP2"
+    },
+    {
+      "roll": "2507012",
+      "password": "G6yD3mV8"
+    },
+    {
+      "roll": "2507013",
+      "password": "X8pL4rQ7"
+    },
+    {
+      "roll": "2507014",
+      "password": "J5wK9nC3"
+    },
+    {
+      "roll": "2507015",
+      "password": "A7mT2vH8"
+    },
+    {
+      "roll": "2507016",
+      "password": "Q4xP6sN9"
+    },
+    {
+      "roll": "2507017",
+      "password": "L8dR3kW5"
+    },
+    {
+      "roll": "2507018",
+      "password": "V2nM7qY4"
+    },
+    {
+      "roll": "2507019",
+      "password": "F9cK5pT8"
+    },
+    {
+      "roll": "2507020",
+      "password": "S6hL2mR7"
+    },
+    {
+      "roll": "2507021",
+      "password": "D8wQ4xN3"
+    },
+    {
+      "roll": "2507022",
+      "password": "K5vP9tM6"
+    },
+    {
+      "roll": "2507023",
+      "password": "W7rH3yL8"
+    },
+    {
+      "roll": "2507024",
+      "password": "N4mC6qX9"
     },
     {
       "roll": "2507025",
-      "password": "1010",
-      "id": "1_5k2OdcX3o"
+      "password": "P9kT5dV2"
+    },
+    {
+      "roll": "2507026",
+      "password": "R3xM8wQ6"
+    },
+    {
+      "roll": "2507027",
+      "password": "Y6nL4pK9"
+    },
+    {
+      "roll": "2507028",
+      "password": "H8qV2mT5"
+    },
+    {
+      "roll": "2507029",
+      "password": "C4wR7xN3"
+    },
+    {
+      "roll": "2507030",
+      "password": "M9pD5kL8"
+    },
+    {
+      "roll": "2507031",
+      "password": "T6yQ3vH7"
+    },
+    {
+      "roll": "2507032",
+      "password": "G5mK8rP2"
+    },
+    {
+      "roll": "2507033",
+      "password": "X7dN4wL9"
+    },
+    {
+      "roll": "2507034",
+      "password": "J3qT6pM8"
+    },
+    {
+      "roll": "2507035",
+      "password": "A9vR5kC7"
+    },
+    {
+      "roll": "2507036",
+      "password": "Q6xH2nW4"
+    },
+    {
+      "roll": "2507037",
+      "password": "L5mP8yT3"
+    },
+    {
+      "roll": "2507038",
+      "password": "V9rK4dN6"
+    },
+    {
+      "roll": "2507039",
+      "password": "F7wQ3pM8"
+    },
+    {
+      "roll": "2507040",
+      "password": "S2nL6xR9"
+    },
+    {
+      "roll": "2507041",
+      "password": "D5kT8vH3"
+    },
+    {
+      "roll": "2507042",
+      "password": "K9mC4qW7"
+    },
+    {
+      "roll": "2507043",
+      "password": "W6pR2yN8"
+    },
+    {
+      "roll": "2507044",
+      "password": "N3xL7tM5"
+    },
+    {
+      "roll": "2507045",
+      "password": "P8vQ4kD9"
+    },
+    {
+      "roll": "2507046",
+      "password": "R5mH6wC2"
+    },
+    {
+      "roll": "2507047",
+      "password": "Y7qT3nL8"
+    },
+    {
+      "roll": "2507048",
+      "password": "H4xP9rM6"
+    },
+    {
+      "roll": "2507049",
+      "password": "C8dK5vW2"
+    },
+    {
+      "roll": "2507050",
+      "password": "M6yR3qN7"
+    },
+    {
+      "roll": "2507051",
+      "password": "T9pL4wH5"
+    },
+    {
+      "roll": "2507052",
+      "password": "G3mQ8xK6"
+    },
+    {
+      "roll": "2507053",
+      "password": "X5vN2rP9"
+    },
+    {
+      "roll": "2507054",
+      "password": "J8kT6dL3"
+    },
+    {
+      "roll": "2507055",
+      "password": "A4wM9qC7"
+    },
+    {
+      "roll": "2507056",
+      "password": "Q7pH3xR8"
+    },
+    {
+      "roll": "2507057",
+      "password": "L9nK5vT2"
+    },
+    {
+      "roll": "2507058",
+      "password": "V6mD4yW8"
+    },
+    {
+      "roll": "2507059",
+      "password": "F3qP7rN5"
+    },
+    {
+      "roll": "2507060",
+      "password": "S8xL2kM6"
+    },
+    {
+      "roll": "2507061",
+      "password": "D4vQ9wH3"
+    },
+    {
+      "roll": "2507062",
+      "password": "K7mR5pC8"
+    },
+    {
+      "roll": "2507063",
+      "password": "W9nT3xL6"
+    },
+    {
+      "roll": "2507064",
+      "password": "N5qH8vP2"
+    },
+    {
+      "roll": "2507065",
+      "password": "P6kM4yR9"
+    },
+    {
+      "roll": "2507066",
+      "password": "R8wD3tC7"
+    },
+    {
+      "roll": "2507067",
+      "password": "Y3pL9xN5"
+    },
+    {
+      "roll": "2507068",
+      "password": "H7mQ4vK8"
+    },
+    {
+      "roll": "2507069",
+      "password": "C5rT6wP2"
+    },
+    {
+      "roll": "2507070",
+      "password": "M8xN3qL7"
+    },
+    {
+      "roll": "2507071",
+      "password": "T4vK9pH6"
+    },
+    {
+      "roll": "2507072",
+      "password": "G6mR2wD8"
+    },
+    {
+      "roll": "2507073",
+      "password": "X9qP5yN3"
+    },
+    {
+      "roll": "2507074",
+      "password": "J7kL4vC8"
+    },
+    {
+      "roll": "2507075",
+      "password": "A5wT8mQ2"
+    },
+    {
+      "roll": "2507076",
+      "password": "Q3nH6rP9"
+    },
+    {
+      "roll": "2507077",
+      "password": "L8xM5dK7"
+    },
+    {
+      "roll": "2507078",
+      "password": "V4pR9qW3"
+    },
+    {
+      "roll": "2507079",
+      "password": "F6mC2yT8"
+    },
+    {
+      "roll": "2507080",
+      "password": "S9kN5vL4"
+    },
+    {
+      "roll": "2507081",
+      "password": "D7qH3wP6"
+    },
+    {
+      "roll": "2507082",
+      "password": "K4xT8rM5"
+    },
+    {
+      "roll": "2507083",
+      "password": "W6pL9nC2"
+    },
+    {
+      "roll": "2507084",
+      "password": "N8mQ4yR7"
+    },
+    {
+      "roll": "2507085",
+      "password": "P5vD3kH9"
+    },
+    {
+      "roll": "2507086",
+      "password": "R9xM6wT2"
+    },
+    {
+      "roll": "2507087",
+      "password": "Y4qK8pL5"
+    },
+    {
+      "roll": "2507088",
+      "password": "H6nC3vW9"
+    },
+    {
+      "roll": "2507089",
+      "password": "C9mR5xP7"
+    },
+    {
+      "roll": "2507090",
+      "password": "M3wT7kN8"
+    },
+    {
+      "roll": "2507091",
+      "password": "T8pL4qD6"
+    },
+    {
+      "roll": "2507092",
+      "password": "G5xH9vR3"
+    },
+    {
+      "roll": "2507093",
+      "password": "X7mP2wK8"
+    },
+    {
+      "roll": "2507094",
+      "password": "J4qN6tC9"
+    },
+    {
+      "roll": "2507095",
+      "password": "A8vR3yL5"
+    },
+    {
+      "roll": "2507096",
+      "password": "Q6kM9pW2"
+    },
+    {
+      "roll": "2507097",
+      "password": "L3xT7nH8"
+    },
+    {
+      "roll": "2507098",
+      "password": "V5mC4qR9"
+    },
+    {
+      "roll": "2507099",
+      "password": "F8wP6kN3"
+    },
+    {
+      "roll": "2507100",
+      "password": "S4yL9vD7"
+    },
+    {
+      "roll": "2507101",
+      "password": "D6qH5xM8"
+    },
+    {
+      "roll": "2507102",
+      "password": "K9pR3wT4"
+    },
+    {
+      "roll": "2507103",
+      "password": "W7mN6vC2"
+    },
+    {
+      "roll": "2507104",
+      "password": "N5xQ8kL3"
+    },
+    {
+      "roll": "2507105",
+      "password": "P3rT9yH6"
+    },
+    {
+      "roll": "2507106",
+      "password": "R8vM4qD7"
+    },
+    {
+      "roll": "2507107",
+      "password": "Y6kL5wC9"
+    },
+    {
+      "roll": "2507108",
+      "password": "H4pN7xT2"
+    },
+    {
+      "roll": "2507109",
+      "password": "C9mQ3vR6"
+    },
+    {
+      "roll": "2507110",
+      "password": "M5wK8dL4"
+    },
+    {
+      "roll": "2507111",
+      "password": "T7xP2nH9"
+    },
+    {
+      "roll": "2507112",
+      "password": "G3qR6vW8"
+    },
+    {
+      "roll": "2507113",
+      "password": "X8mL4kC5"
+    },
+    {
+      "roll": "2507114",
+      "password": "J6pT9yN3"
+    },
+    {
+      "roll": "2507115",
+      "password": "A5vQ7rM8"
+    },
+    {
+      "roll": "2507116",
+      "password": "Q9kH3wL6"
+    },
+    {
+      "roll": "2507117",
+      "password": "L4xP8nD5"
+    },
+    {
+      "roll": "2507118",
+      "password": "V7mR2qC9"
+    },
+    {
+      "roll": "2507119",
+      "password": "F6wT5kN3"
+    },
+    {
+      "roll": "2507120",
+      "password": "S8pL4vH7"
+    },
+    {
+      "roll": "2507121",
+      "password": "D3qM9xW6"
     }
   ],
   "items": [
     {
       "id": "1",
       "roll": "2020331046",
-      "contact": "017XXXXXXXX",
-      "itemName": "Black Wallet",
+      "contact": "01723119843",
+      "itemName": "Wallet",
       "location": "Cafeteria",
       "fkey1": "Color",
       "fvalue1": "Black",
@@ -28,7 +502,7 @@
     {
       "id": "2",
       "roll": "2020331090",
-      "contact": "018XXXXXXXX",
+      "contact": "018311534122",
       "itemName": "Blue Backpack",
       "location": "Library Building",
       "fkey1": "Color",
@@ -41,11 +515,11 @@
     {
       "id": "3",
       "roll": "2020331112",
-      "contact": "019XXXXXXXX",
+      "contact": "01915324354",
       "itemName": "Smartphone",
-      "location": "Engineering Lab",
+      "location": "SWC",
       "fkey1": "Color",
-      "fvalue1": "Midnight Black",
+      "fvalue1": "Black",
       "fkey2": "Company",
       "fvalue2": "Samsung",
       "fkey3": "Model",
@@ -74,8 +548,21 @@
       "fkey2": "Logo",
       "fvalue2": "nike",
       "fkey3": "Material",
-      "fvalue3": "afbric",
+      "fvalue3": "fabric",
       "id": "8WVWFkzLFOM"
+    },
+    {
+      "roll": "2507026",
+      "contact": "01730722884",
+      "itemName": "Phone",
+      "location": "Central Library",
+      "fkey1": "Color",
+      "fvalue1": "Red",
+      "fkey2": "Logo",
+      "fvalue2": "Xaomi",
+      "fkey3": "Model",
+      "fvalue3": "MI A3",
+      "id": "PPk3IPDv4ss"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
