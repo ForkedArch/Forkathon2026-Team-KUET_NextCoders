@@ -229,8 +229,8 @@ AI‑powered object detection and feature extraction: An intelligent system will
 ---
 ## Presentation Video
 
-https://drive.google.com/drive/folders/1bxa11IyOy7xJXMPnanaGw2oEVghK-3QC?usp=sharing
-
+**Drive** https://drive.google.com/drive/folders/1bxa11IyOy7xJXMPnanaGw2oEVghK-3QC?usp=sharing
+**YouTube** https://youtu.be/7kJAE_Wn7CQ
 ---
 
 <b>Forkathon: Freshers Hackathon 2026 presented by ForkedArch powered by XtendArena</b>
