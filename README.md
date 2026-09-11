@@ -94,16 +94,16 @@ Secure Data Release: Upon a successful match, the system releases the contact de
 
 ## 🏗️ Architecture
 
-```mermaid
+``` mermaid
 flowchart TD
     User[User]
     Frontend["Frontend<br/>(index.html, class.js, style.css)"]
-    API Connection["API Connection<br/>(app.js)"]
+    APIConnection["API Connection<br/>(app.js)"]
     Database[("Database<br/>(db.json)")]
 
     User --> Frontend
-    Frontend --> API Connection
-    API Connection --> Database
+    Frontend --> APIConnection
+    APIConnection --> Database
 ```
 
 ## Program Flow
