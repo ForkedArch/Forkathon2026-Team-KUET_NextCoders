@@ -31,7 +31,7 @@ The Problem probably needs a digital solution.
 Brainstorming twist:  
 Don't limit yourself to simply matching identical names or descriptions. Think about how the system could intelligently determine that two seemingly different reports might refer to the same object.
 
-### 🤔 KUET_NextCoder's Understanding
+### KUET_NextCoder's Understanding
 
 It was the admission season—the examinees were waiting in queue for the gate to open. Just as Amanat was about to enter the exam hall, he started to panic.
 
@@ -51,7 +51,7 @@ Such incidents occur on a daily basis. Sometimes we lose a calculator, other tim
 
 ---
 
-## 💡 Our Solution
+## Our Solution
 
 ### Overview
 
@@ -91,7 +91,7 @@ Audit & Accountability Logging: A tracking system that logs successfully matched
 
 ---
 
-## ⚙️ Technology Stack  
+## Technology Stack  
 
 - 🖥️ **Frontend: HTML, CSS, and Vanilla JavaScript**  
   We use 🧱 HTML for the structure, 🎨 CSS for styling, and ⚡ Vanilla JavaScript for functionality and user interaction.  
@@ -140,7 +140,7 @@ flowchart TD
     Action -->|Found user| Respond[View claimer's details<br/>+ contact info]
 ```
 
-## 🏗️ Architecture
+## Architecture
 ``` mermaid
 flowchart TD
     User[👤 User]
@@ -205,7 +205,7 @@ Website will be accessible via "http://localhost:3000/" on local machine.
 
 ---
 
-## 🤖 AI Usage
+## AI Usage
 We used AI tools to assist in writing parts of the codebase. The AI primarily handled the labor‑intensive tasks such as generating boilerplate code, repetitive structures, and syntax details.
 
 However, our team’s contribution was not diminished — we focused on the core logic, architecture, and ideas that shaped the application. The AI acted as a supportive tool, while we made the key design decisions, implemented the workflow, and ensured the system aligned with our vision.
@@ -213,11 +213,11 @@ However, our team’s contribution was not diminished — we focused on the core
 In other words, AI was like an engineering assistant: it helped with the heavy lifting, but the problem‑solving, creativity, and decision‑making came from us. This balance allowed us to move faster while still maintaining ownership of the project’s logic and innovation.
 
 ---
-## 🧪 Testing / Quality Assurance
+## Testing / Quality Assurance
 The system was individually tested across multiple devices to ensure compatibility and consistent performance. Local servers were set up to validate the database collection and retrieval components, ensuring that data flows correctly between the frontend and backend. Overall, a thorough quality check was carried out on the project and its codebase to minimize unexpected issues and ensure reliability.
 
 ---
-## 🚀 Future Improvements
+## Future Improvements
 Looking ahead, several enhancements are planned to make the system more robust and user‑friendly:
 
 Inquiry‑based feed system: Users will only see items relevant to their search, improving efficiency and personalization.
