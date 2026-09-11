@@ -1,10 +1,11 @@
 {
-  "name": "backend",
+  "name": "kontakar-backend",
   "version": "1.0.0",
+  "private": true,
   "scripts": {
-    "start": "json-server --watch db.json --port $PORT"
+    "start": "json-server db.json --host 0.0.0.0 --port $PORT"
   },
   "dependencies": {
-    "json-server": "^0.17.0"
+    "json-server": "^1.0.0-beta.15"
   }
 }
