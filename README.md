@@ -227,5 +227,10 @@ Image support for lost objects: The ability to upload and display images of repo
 AI‑powered object detection and feature extraction: An intelligent system will automatically identify key attributes of an object (e.g., type, color, material) from uploaded images, making reporting and matching more accurate.
 
 ---
+## Presentation Video
+
+https://drive.google.com/drive/folders/1bxa11IyOy7xJXMPnanaGw2oEVghK-3QC?usp=sharing
+
+---
 
 <b>Forkathon: Freshers Hackathon 2026 presented by ForkedArch powered by XtendArena</b>
